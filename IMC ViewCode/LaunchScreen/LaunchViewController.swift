@@ -33,9 +33,6 @@ class LaunchViewController: UIViewController {
     }
 }
 
-
-
-
 // MARK: - View
 
 fileprivate class LaunchView: UIView {
@@ -45,60 +42,48 @@ fileprivate class LaunchView: UIView {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-
+    
     private lazy var footerLabel = createLabel(ofType: .footer, withText: "by Yago")
-
+    
     init() {
         super.init(frame: UIScreen.main.bounds)
         backgroundColor = .blue
-
+        
         setupHierarchy()
         setupConstraints()
     }
-
+    
     private func setupHierarchy() {
         addSubview(launchScreenImageView)
         addSubview(footerLabel)
     }
-
+    
     private func setupConstraints() {
         
         launchScreenImageView.snp.makeConstraints{ $0
             $0.edges.equalToSuperview()
         }
+        
         footerLabel.snp.makeConstraints{ $0
             $0.top.equalToSuperview().offset(50)
             $0.leading.equalToSuperview().offset(10)
             $0.trailing.equalToSuperview().offset(-10)
         }
-        
-       // NSLayoutConstraint.activate(
-//            [
-//                mainLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
-//                mainLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-//                mainLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-
-//                footerLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
-//                footerLabel.heightAnchor.constraint(equalToConstant: 50),
-//                footerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-//                footerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
-//            ]
-     //   )
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func createLabel(ofType type: LabelType, withText text: String) -> UILabel {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-
+        
         label.text = text
         label.font = type.fontType
         label.numberOfLines = .zero
         label.textAlignment = .center
-
+        
         return label
     }
 }
@@ -108,7 +93,7 @@ fileprivate class LaunchView: UIView {
 fileprivate enum LabelType {
     case main
     case footer
-
+    
     var fontType: UIFont {
         switch self {
         case .main:
