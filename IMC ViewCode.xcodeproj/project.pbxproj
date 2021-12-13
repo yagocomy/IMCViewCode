@@ -14,7 +14,7 @@
 		A02AA1172765750B00A48DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02AA1162765750B00A48DF2 /* Assets.xcassets */; };
 		A02AA122276577A800A48DF2 /* IMCScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02AA121276577A800A48DF2 /* IMCScreenView.swift */; };
 		A02AA1242766B08700A48DF2 /* PosLauchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02AA1232766B08700A48DF2 /* PosLauchingViewController.swift */; };
-		A02AA1272766B36E00A48DF2 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02AA1262766B36E00A48DF2 /* LaunchScreenView.swift */; };
+		A02AA1272766B36E00A48DF2 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02AA1262766B36E00A48DF2 /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		A02AA11B2765750B00A48DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A02AA121276577A800A48DF2 /* IMCScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMCScreenView.swift; sourceTree = "<group>"; };
 		A02AA1232766B08700A48DF2 /* PosLauchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosLauchingViewController.swift; sourceTree = "<group>"; };
-		A02AA1262766B36E00A48DF2 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		A02AA1262766B36E00A48DF2 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		E64408A03EB8AFC108B36134 /* Pods-IMC ViewCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMC ViewCode.release.xcconfig"; path = "Target Support Files/Pods-IMC ViewCode/Pods-IMC ViewCode.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A02AA1112765750800A48DF2 /* LaunchViewController.swift */,
-				A02AA1262766B36E00A48DF2 /* LaunchScreenView.swift */,
+				A02AA1262766B36E00A48DF2 /* LaunchView.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 				A02AA1242766B08700A48DF2 /* PosLauchingViewController.swift in Sources */,
 				A02AA122276577A800A48DF2 /* IMCScreenView.swift in Sources */,
 				A02AA1102765750800A48DF2 /* SceneDelegate.swift in Sources */,
-				A02AA1272766B36E00A48DF2 /* LaunchScreenView.swift in Sources */,
+				A02AA1272766B36E00A48DF2 /* LaunchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

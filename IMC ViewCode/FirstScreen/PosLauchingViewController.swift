@@ -28,7 +28,7 @@ class PosLauchingViewController: UIViewController {
 
 fileprivate class PosLaunchingView: UIView {
     
-    private lazy var launchScreenImageView: UILabel = {
+    private lazy var firstLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 40, weight: .bold)
         label.backgroundColor = .yellow
@@ -39,14 +39,39 @@ fileprivate class PosLaunchingView: UIView {
         return label
     }()
     
+    private lazy var secondLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.backgroundColor = .yellow
+        label.text = "Descubra seu índice de massa corporal"
+        label.textAlignment = .center
+        label.numberOfLines = .zero
+        
+        return label
+    }()
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .orange
+        setHierarchy()
+        setConstraints()
         
-        addSubview(launchScreenImageView)
+    }
+    
+    func setHierarchy(){
+        addSubview(firstLabel)
+        addSubview(secondLabel)
+    }
+    
+   private func setConstraints(){
+        firstLabel.snp.makeConstraints{ $0
+            $0.top.equalToSuperview().offset(70)
+            $0.leading.equalToSuperview().offset(50)
+            $0.trailing.equalToSuperview().offset(-50)
+        }
         
-        launchScreenImageView.snp.makeConstraints{ $0
-            $0.top.equalToSuperview().offset(30)
+        secondLabel.snp.makeConstraints{ $0
+            $0.top.equalTo(firstLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(10)
             $0.trailing.equalToSuperview().offset(-10)
         }
