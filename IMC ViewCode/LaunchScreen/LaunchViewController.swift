@@ -16,7 +16,7 @@ class LaunchViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-       // view = LaunchView()
+      
     }
     
     required init?(coder: NSCoder) {
