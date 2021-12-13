@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct ConstantsColors {
+    static let col1 = UIColor(red: 81, green: 177, blue: 192, alpha: 1)
+}
+
 class PosLaunchingView: UIView {
     
     private lazy var firstLabel: UILabel = {
@@ -27,7 +31,6 @@ class PosLaunchingView: UIView {
         label.text = "Descubra seu índice de massa corporal"
         label.textAlignment = .center
         label.numberOfLines = .zero
-        
         return label
     }()
     
@@ -38,7 +41,6 @@ class PosLaunchingView: UIView {
         label.text = "Peso (KG)"
         label.textAlignment = .center
         label.numberOfLines = .zero
-        
         return label
     }()
     
@@ -73,9 +75,41 @@ class PosLaunchingView: UIView {
         return textField
     }()
     
+    public lazy var calculateButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Calcular", for: .normal)
+        button.backgroundColor = .yellow
+       // button.addTarget(self, action: #selector(entrarButtonUp), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+    return view
+    }()
+    
+    private lazy var yourIMCLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.backgroundColor = .yellow
+        label.text = "Seu índice de massa corporal é:"
+        label.textAlignment = .center
+        label.numberOfLines = .zero
+        return label
+    }()
+    
+    private lazy var launchScreenImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "ideal"))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+
+    
     init() {
         super.init(frame: .zero)
-        backgroundColor = .orange
+        backgroundColor = .cyan
         setHierarchy()
         setConstraints()
     }
@@ -87,6 +121,10 @@ class PosLaunchingView: UIView {
         addSubview(heightLabel)
         addSubview(weightTextField)
         addSubview(heightTextField)
+        addSubview(calculateButton)
+        addSubview(containerView)
+        addSubview(yourIMCLabel)
+        addSubview(launchScreenImageView)
         
     }
     
@@ -129,6 +167,34 @@ class PosLaunchingView: UIView {
            $0.trailing.equalToSuperview().offset(-40)
            $0.width.equalTo(100)
            $0.height.equalTo(40)
+       }
+       
+       calculateButton.snp.makeConstraints{ $0
+           $0.top.equalTo(weightTextField.snp.bottom).offset(30)
+           $0.leading.equalToSuperview().offset(40)
+           $0.trailing.equalToSuperview().offset(-40)
+           $0.width.equalTo(100)
+           $0.height.equalTo(40)
+       }
+       
+       containerView.snp.makeConstraints{ $0
+           $0.top.equalTo(calculateButton.snp.bottom).offset(30)
+           $0.leading.equalToSuperview()
+           $0.trailing.equalToSuperview()
+           $0.bottom.equalToSuperview()
+       }
+       
+       yourIMCLabel.snp.makeConstraints{ $0
+           $0.top.equalTo(containerView.snp.top).offset(20)
+           $0.leading.equalToSuperview().offset(20)
+           $0.trailing.equalToSuperview().offset(-20)
+       }
+       
+       launchScreenImageView.snp.makeConstraints{ $0
+           $0.top.equalTo(yourIMCLabel.snp.top).offset(40)
+           $0.bottom.equalToSuperview()
+           $0.leading.equalToSuperview().offset(20)
+           $0.trailing.equalToSuperview().offset(-20)
        }
     }
     
