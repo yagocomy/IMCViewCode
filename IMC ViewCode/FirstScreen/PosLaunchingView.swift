@@ -16,18 +16,17 @@ class PosLaunchingView: UIView {
     private lazy var firstLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.text = "Cálculo do IMC"
         label.textAlignment = .center
         label.numberOfLines = .zero
-        
         return label
     }()
     
     private lazy var secondLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.text = "Descubra seu índice de massa corporal"
         label.textAlignment = .center
         label.numberOfLines = .zero
@@ -37,7 +36,7 @@ class PosLaunchingView: UIView {
     private lazy var weightLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.text = "Peso (KG)"
         label.textAlignment = .center
         label.numberOfLines = .zero
@@ -47,16 +46,16 @@ class PosLaunchingView: UIView {
     private lazy var heightLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.text = "Peso (KG)"
         label.textAlignment = .center
         label.numberOfLines = .zero
-        
         return label
     }()
     
     lazy var weightTextField: UITextField = {
         let textField = UITextField()
+        textField.font = .systemFont(ofSize: 15, weight: .bold)
         textField.borderStyle = .line
         textField.placeholder = "Ex: 75"
         textField.textColor = .black
@@ -67,6 +66,7 @@ class PosLaunchingView: UIView {
     
     lazy var heightTextField: UITextField = {
         let textField = UITextField()
+        textField.font = .systemFont(ofSize: 15, weight: .bold)
         textField.borderStyle = .line
         textField.placeholder = "Ex: 1,75"
         textField.textColor = .black
@@ -78,7 +78,7 @@ class PosLaunchingView: UIView {
     public lazy var calculateButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Calcular", for: .normal)
-        button.backgroundColor = .yellow
+        button.backgroundColor = .systemBlue
        // button.addTarget(self, action: #selector(entrarButtonUp), for: .touchUpInside)
         return button
     }()
@@ -92,7 +92,7 @@ class PosLaunchingView: UIView {
     private lazy var yourIMCLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.text = "Seu índice de massa corporal é:"
         label.textAlignment = .center
         label.numberOfLines = .zero
@@ -104,8 +104,6 @@ class PosLaunchingView: UIView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-
     
     init() {
         super.init(frame: .zero)
@@ -125,7 +123,6 @@ class PosLaunchingView: UIView {
         addSubview(containerView)
         addSubview(yourIMCLabel)
         addSubview(launchScreenImageView)
-        
     }
     
    private func setConstraints(){
