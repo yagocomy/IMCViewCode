@@ -46,7 +46,7 @@ class PosLaunchingView: UIView {
         let label = UILabel(frame: .zero)
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.backgroundColor = .clear
-        label.text = "Peso (KG)"
+        label.text = "Altura (m)"
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = .zero
@@ -59,6 +59,7 @@ class PosLaunchingView: UIView {
         textField.borderStyle = .none
         textField.placeholder = " Ex: 75"
         textField.textColor = .black
+        textField.keyboardType = .decimalPad
         textField.backgroundColor = .white
         textField.keyboardType = .emailAddress
         textField.layer.cornerRadius = 5
@@ -69,7 +70,8 @@ class PosLaunchingView: UIView {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15, weight: .bold)
         textField.borderStyle = .none
-        textField.placeholder = " Ex: 1,75"
+        textField.placeholder = " Ex: 1.75"
+        textField.keyboardType = .decimalPad
         textField.textColor = .black
         textField.backgroundColor = .white
         textField.keyboardType = .emailAddress
@@ -82,7 +84,7 @@ class PosLaunchingView: UIView {
         button.setTitle("Calcular", for: .normal)
         button.backgroundColor = .yellow
         button.layer.cornerRadius = 5
-       // button.addTarget(self, action: #selector(entrarButtonUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(calculate), for: .touchUpInside)
         return button
     }()
     
@@ -103,16 +105,19 @@ class PosLaunchingView: UIView {
     }()
     
     private lazy var launchScreenImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "ideal"))
+        let imageView = UIImageView(image: UIImage(named: ""))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
+    var imc: Double = 0
+
     init() {
         super.init(frame: .zero)
-        backgroundColor = .red
+        backgroundColor = .init(red: 81/255.0, green: 177/255.0, blue: 192/255.0, alpha: 1)
         setHierarchy()
         setConstraints()
+        showResults()
     }
     
     func setHierarchy(){
@@ -196,6 +201,37 @@ class PosLaunchingView: UIView {
            $0.leading.equalToSuperview().offset(20)
            $0.trailing.equalToSuperview().offset(-20)
        }
+    }
+    
+    @IBAction func calculate(_ sender: Any){
+        if let weight = Double(weightTextField.text!), let height = Double(heightTextField.text!){
+            imc = weight / (height*height)
+            showResults()
+        }
+    }
+    
+    func showResults(){
+        var result: String = ""
+        var image: String = ""
+        switch imc {
+        case 0..<16:
+            result = "magreza"
+            image = "abaixo"
+        case 16..<18.5:
+            result = "Abaixo do peso"
+            image = "abaixo"
+        case 18.5..<25:
+            result = "Peso ideal"
+            image = "abaixo"
+        case 25..<30:
+            result = "Sobrepeso"
+            image = "sobre"
+        default:
+            result = "Obesidade"
+            image = "obesidade"
+        }
+        yourIMCLabel.text = "Seu IMC é \(Int(imc)): e corresponde a: \(result)"
+        launchScreenImageView.image = UIImage(named: image)
     }
     
     required init?(coder: NSCoder) {

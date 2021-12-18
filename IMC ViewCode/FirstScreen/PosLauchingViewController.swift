@@ -28,4 +28,7 @@ class PosLauchingViewController: UIViewController {
         super.viewDidLoad()
         self.view = self.posLaunchView
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
