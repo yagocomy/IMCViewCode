@@ -28,7 +28,7 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in // ESPERO 3s PARA O SPLASH SUMIR
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in // ESPERO 3s PARA O SPLASH SUMIR
             let vc = PosLauchingViewController()
             vc.modalPresentationStyle = .fullScreen // CONFIGURO O VIEW CONTROLLER PARA TELA CHEIA
             vc.modalTransitionStyle = .crossDissolve

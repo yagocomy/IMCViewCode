@@ -34,7 +34,10 @@ class LaunchView: UIView {
     private func setupConstraints() {
         
         launchScreenImageView.snp.makeConstraints{ $0
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview()
         }
         
         footerLabel.snp.makeConstraints{ $0
